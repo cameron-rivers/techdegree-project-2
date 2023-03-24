@@ -17,9 +17,10 @@ For assistance:
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
+let itemsPerPage = 9;
 
 function showPage (list, page) {
-   let itemsPerPage = 9;
+
    let startIndex = (page * itemsPerPage) - itemsPerPage;
    let endIndex = (page * itemsPerPage);
 
@@ -28,9 +29,6 @@ function showPage (list, page) {
 
    for (let i = 0; i < list.length; i++) {
       if (i >= startIndex && i < endIndex) {
-         //Create the DOM elements needed to display the information for each matching student as you iterate over the list parameter SEE EXAMPLE
-         //Because you will need to create multiple elements to display the information for each student, consider using a template literal for this.
-         //Insert the elements you have created into the student-list variable. The insertAdjacentHTML method and beforeend option work well for this.
          studentList.insertAdjacentHTML('beforeend', 
          `
             <li class="student-item cf">
@@ -55,7 +53,21 @@ function showPage (list, page) {
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
+function addPagination (list) {
+   let numButtons = list.length / itemsPerPage;
 
+   let linkList = document.querySelector('.link-list');
+   linkList.innerHTML = '';
+
+   for (let j = 0; j < numButtons.length; j++) {
+      linkList.insertAdjacentHTML('beforeend', 
+      `
+         <li>
+            <button type="button">1</button>
+         </li>
+      `);
+   }
+}
 
 
 // Call functions
