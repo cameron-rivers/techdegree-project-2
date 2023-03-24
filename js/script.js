@@ -50,7 +50,6 @@ function showPage (list, page) {
          `);
       }
    }
-   
 }
 
 
