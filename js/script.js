@@ -57,17 +57,26 @@ function addPagination (list) {
    let numButtons = list.length / itemsPerPage;
 
    let linkList = document.querySelector('.link-list');
+
    linkList.innerHTML = '';
 
    for (let j = 0; j < numButtons.length; j++) {
       linkList.insertAdjacentHTML('beforeend', 
       `
          <li>
-            <button type="button">${j+1}</button>
+            <button type="button">1</button>
          </li>
       `);
    }
-   linkList.querySelector('button').className = 'active';
+   
+   
+   let buttons = linkList.querySelectorAll('button')
+   
+   for (let i = 0; i < buttons.length; i++) {
+      buttons[i].className = 'active';
+
+   }
+
    linkList.addEventListener('click', (e) => {
       if (e.target.type === 'button') {
          let buttons = linkList.querySelectorAll('button');
