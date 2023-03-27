@@ -63,11 +63,24 @@ function addPagination (list) {
       linkList.insertAdjacentHTML('beforeend', 
       `
          <li>
-            <button type="button">1</button>
+            <button type="button">${j+1}</button>
          </li>
       `);
    }
+   linkList.querySelector('button').className = 'active';
+   linkList.addEventListener('click', (e) => {
+      if (e.target.type === 'button') {
+         let buttons = linkList.querySelectorAll('button');
+         for (let i = 0; i < buttons.length; i++) {
+            buttons[i].className = '';
+         }
+         e.target.className = 'active';
+         showPage(list, e.target.textContent)
+      }
+   });
 }
 
 
 // Call functions
+showPage(data,1);
+addPagination(data);
