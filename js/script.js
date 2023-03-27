@@ -48,7 +48,6 @@ function showPage (list, page) {
 
 
 
-
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
@@ -69,12 +68,8 @@ function addPagination (list) {
       `);
    }
    
-   
-   let buttons = linkList.querySelectorAll('button')
-   
-   for (let i = 0; i < buttons.length; i++) {
-      buttons[i].className = 'active';
-   }
+   let firstButton = linkList.querySelector('button');
+   firstButton.className = 'active';
 
    linkList.addEventListener('click', (e) => {
       if (e.target.type === 'button') {
@@ -87,6 +82,7 @@ function addPagination (list) {
       }
    });
 }
+
 
 
 // Call functions
