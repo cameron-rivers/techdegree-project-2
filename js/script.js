@@ -11,6 +11,28 @@ For assistance:
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
+//Extra Credit - setting up the search bar
+let  header = document.querySelector('header');
+
+let searchLabel = document.createElement('label');
+let searchSpan = document.createElement('span');
+let searchInput = document.createElement('input');
+let searchButton = document.createElement('button');
+let searchImg = document.createElement('img');
+
+searchLabel.setAttribute('for', 'search');
+searchLabel.className = 'student-search';
+searchSpan.textContent = 'Search by name';
+searchInput.id = 'search';
+searchInput.placeholder = 'Search by name...';
+searchImg.src = "img/icn-search.svg";
+searchImg.alt = "Search icon";
+
+header.appendChild(searchLabel);
+searchLabel.appendChild(searchSpan);
+searchLabel.appendChild(searchInput);
+searchLabel.appendChild(searchButton);
+searchButton.appendChild(searchImg);
 
 
 /*
@@ -88,3 +110,9 @@ function addPagination (list) {
 // Call functions
 showPage(data,1);
 addPagination(data);
+
+
+
+
+
+
