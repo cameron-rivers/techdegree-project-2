@@ -34,6 +34,15 @@ searchLabel.appendChild(searchInput);
 searchLabel.appendChild(searchButton);
 searchButton.appendChild(searchImg);
 
+//adding event listeners to the search input and button 
+searchInput.addEventListener('keyup', (e) => {
+   searchList(data, searchInput);
+});
+
+searchButton.addEventListener('click', (e) => {
+   searchList(data, searchInput);
+});
+
 
 /*
 Create the `showPage` function
@@ -106,11 +115,25 @@ function addPagination (list) {
 }
 
 
-
 // Call functions
 showPage(data,1);
 addPagination(data);
 
+//extra credit searchList function 
+//   const searchFilter = header.querySelector('input');
+//   const searchBtn = header.querySelector('button');
+
+function searchList (list, input) {
+   let searchResults = [];
+   for (let i = 0; i < list.length; i++) {
+      let listName = `${list[i].name.first.toLowerCase()} ${list[i].name.last.toLowerCase()}`;
+      if (listName.includes(input)) {
+         searchResults.push(list[i]);
+      };
+
+   }
+
+}
 
 
 
