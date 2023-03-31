@@ -34,6 +34,15 @@ searchLabel.appendChild(searchInput);
 searchLabel.appendChild(searchButton);
 searchButton.appendChild(searchImg);
 
+//adding event listeners to the search input and button 
+searchInput.addEventListener('keyup', (e) => {
+   searchList(searchInput, data);
+});
+
+searchButton.addEventListener('click', (e) => {
+   searchList(searchInput, data);
+});
+
 
 /*
 Create the `showPage` function
@@ -112,7 +121,9 @@ showPage(data,1);
 addPagination(data);
 
 
+//extra credit search function
 
+function searchList(list)
 
 
 
