@@ -39,11 +39,11 @@ let searchButtonData = document.querySelector('button');
 
 //adding event listeners to the search input and button 
 searchInputData.addEventListener('keyup', (e) => {
-   searchList(data, searchInput);
+   searchList(data, searchInputData);
 });
 
 searchButtonData.addEventListener('click', (e) => {
-   searchList(data, searchInput);
+   searchList(data, searchInputData);
 });
 
 /*
