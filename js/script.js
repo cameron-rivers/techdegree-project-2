@@ -122,6 +122,9 @@ addPagination(data);
 //extra credit searchList function 
 //   const searchFilter = header.querySelector('input');
 //   const searchBtn = header.querySelector('button');
+//OR
+//let searchInput = document.querySelector('#search');
+//let searchIcon = document.querySelector('button img'); 
 
 function searchList (list, input) {
    let searchResults = [];
@@ -130,10 +133,20 @@ function searchList (list, input) {
       if (listName.includes(input)) {
          searchResults.push(list[i]);
       };
-
    }
 
-}
+   if (input.value.length !== 0 && searchResults.length === 0 ) {
+      let studentList = document.querySelector('.student-list');
+      studentList.innerHTML = '<li>No results found</li>';
+      addPagination(searchResults);
+   } else if (input.value.length === 0) {
+      showPage(data, 1);
+      addPagination(data);
+   } else if (input.value.length !== 0 && searchResults.length !== 0) {
+      showPage(searchResults, 1);
+      addPagination(searchResults);
+   }
+};
 
 
 
