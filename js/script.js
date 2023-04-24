@@ -122,27 +122,26 @@ showPage(data,1);
 addPagination(data);
 
 //extra credit searchList function 
-
 function searchList (list, input) {
    let searchResults = [];
    for (let i = 0; i < list.length; i++) {
       let listName = `${list[i].name.first.toLowerCase()} ${list[i].name.last.toLowerCase()}`;
       if (listName.includes(input)) {
          searchResults.push(list[i]);
+         //console.log(searchResults);
       };
    }
-
-   if (input.value.length !== 0 && searchResults.length === 0 ) {
-      let studentList = document.querySelector('.student-list');
-      studentList.innerHTML = '<li>No results found</li>';
-      addPagination(searchResults);
-   } else if (input.value.length === 0) {
+   if (input.value.length === 0) {
       showPage(data, 1);
       addPagination(data);
    } else if (input.value.length !== 0 && searchResults.length !== 0) {
       showPage(searchResults, 1);
       addPagination(searchResults);
-   }
+   } else {
+      let studentList = document.querySelector('.student-list');
+      studentList.innerHTML = '<li>No results found</li>';
+      addPagination(searchResults);
+   } 
 };
 
 
